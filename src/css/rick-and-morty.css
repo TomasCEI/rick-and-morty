@@ -18,3 +18,21 @@
     min-width: 80vw;
     max-width: 800px;
 }
+
+
+/* utilites en flex */
+.flexBetween{
+    display:flex;
+    justify-content: space-between;
+}
+
+.flexGrid {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.flexCenter {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
