@@ -29,7 +29,7 @@ const Personajes = () => {
 
     return ( 
         <section>
-            <h3>Personajes</h3>
+            <h3>Personajes ({info.count})</h3>
 
             <div className="flexBetween">
                 <button>Ant</button>
