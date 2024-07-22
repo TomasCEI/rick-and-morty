@@ -1,6 +1,30 @@
 # rick-and-morty
 Consulta al API de Rick and Morty con REACT
 
+
+<!-- API KEY DE VideoJuegos
+0cdc4c83299a45cda7fac2232727c36f
+
+
+https://api.rawg.io/api/games?key=0cdc4c83299a45cda7fac2232727c36f&dates=2019-09-01,2019-09-30&platforms=18,1,7
+
+const databaseData= {......}
+const listaJuegos = databaseData.results;
+
+listaJuegos.map((juego)=> {
+    {  <p>{juego.name}</p>}
+})
+
+databaseData.results[0].name // Borderlands 3
+
+
+https://api.rawg.io
+                    /api
+                    /games
+                        ? key=0cdc4c83299a45cda7fac2232727c36f
+                          & dates=2019-09-01,2019-09-30
+                          & platforms=18,1,7 -->
+
 En esta actividad, vamos a explorar la API de Rick and Morty (https://rickandmortyapi.com/) para crear una aplicación web utilizando React. La API ofrece tres categorías principales: Personajes, Lugares y Episodios.
 1. Para comenzar, visita la web de la API de Rick and Morty (https://rickandmortyapi.com/) para entender cómo está estructurada la API y qué datos proporciona en cada categoría. Examina los endpoints disponibles y la estructura de los datos.
 2. Crea un nuevo proyecto de React y configura tu entorno de desarrollo. Asegúrate de tener instaladas las herramientas necesarias, como Node.js y npm.

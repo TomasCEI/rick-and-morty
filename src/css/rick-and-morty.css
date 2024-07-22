@@ -20,6 +20,16 @@
 }
 
 
+.Card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    /* https://getcssscan.com/css-box-shadow-examples */
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
 /* utilites en flex */
 .flexBetween{
     display:flex;
@@ -29,10 +39,16 @@
 .flexGrid {
     display:flex;
     flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .flexCenter {
     display:flex;
     justify-content: center;
     align-items: center;
+}
+
+.flexGrid .Card {
+    max-width: 250px;
 }

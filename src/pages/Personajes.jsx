@@ -10,20 +10,29 @@ const Personajes = () => {
     });
 
     useEffect(()=> {
-        getPersonajes(); // utilizando async/await
+        getPersonajes("https://rickandmortyapi.com/api/character"); // utilizando async/await
         console.log("[Personajes.jsx] cargando datos");
     }, []); // al estar vacío únicamente se ejecuta en componentDidMount
 
-    const getPersonajes = async () => {
+    const getPersonajes = async (url) => {
 
-        const respuesta = await fetch("https://rickandmortyapi.com/api/character");
-        // console.log("[Personajes.jsx] Respuesta vale:", respuesta);
+        try {
 
-        const objeto = await respuesta.json();
-        console.log("[Personajes.jsx] Objeto vale:", objeto);
+            // const url ="https://rickandmortyapi.com/api/character";
+            const respuesta = await fetch( url );
+            // console.log("[Personajes.jsx] Respuesta vale:", respuesta);
+    
+            const objeto = await respuesta.json();
 
-        setPersonajes(objeto.results);
-        setInfo(objeto.info);
+            console.log("[Personajes.jsx] Result de Get es: ", objeto);
+    
+            setPersonajes(objeto.results);
+            setInfo(objeto.info);
+
+
+        } catch (error){
+            // tuve un error
+        }
 
     }
 
@@ -32,30 +41,33 @@ const Personajes = () => {
             <h3>Personajes ({info.count})</h3>
 
             <div className="flexBetween">
-                <button>Ant</button>
+                <button disabled={!info.prev} onClick={ ()=> { getPersonajes(info.prev)  } }  >Ant</button>
                 <div className="flexCenter">
                     {info.count}
                 </div>
-                <button>Sig</button>
+                <button disabled={!info.next} onClick={ ()=> { getPersonajes(info.next)  } }  >Sig</button>
             </div>
 
             <div className="flexGrid">
                 {
-                    personajes.map( (personaje) => {
-                        console.log(personaje);
-                        return (
-                            <div key={personaje.id}>
-                             nombre: {personaje.name}
-                            </div>
-                        )
-                    })
-
+                    personajes.map( (personaje) => (
+                        <PersonajeCard key={personaje.id} {...personaje} />
+                    ))
                 }
             </div>
-           
-
         </section>
      );
+}
+
+const PersonajeCard = ({name, image, id, status, species, location}) => {
+    
+    
+    return (
+        <article className="Card">
+            nombre: {name}
+            <img src={image} alt={name} />
+        </article>
+    )
 }
  
 export default Personajes;

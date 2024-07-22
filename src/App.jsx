@@ -7,7 +7,7 @@ import Personajes from './pages/Personajes';
 import Episodios from './pages/Episodios';
 
 function App() {
-  const [seccion, setSeccion] = useState("personajes")
+  const [seccion, setSeccion] = useState("")
 
   return (
     <main className="Container">
@@ -27,6 +27,7 @@ function App() {
         {seccion == "ubicaciones" && <Ubicaciones />}
         {seccion == "episodios" && <Episodios />} 
       </div>
+
 
     </main>
   )
