@@ -1,56 +1,42 @@
-import { useState, useEffect } from 'react'
-import './css/App.css'
-import './css/rick-and-morty.css'
+Instalación de React-Router 6
+```bash
+npm install react-router-dom
+```
+
+
+Para usarlo, primero englobamos nuestra app con la etiquet `<Router>`
+
+```jsx
+// imports
 import { BrowserRouter as Router, Route, Link, Routes, NavLink, useParams } from 'react-router-dom';
 
-import Ubicaciones from './pages/Ubicaciones';
-import Personajes from './pages/Personajes';
-import Episodios from './pages/Episodios';
-import AlienAI from './components/Alien';
 
-function App() {
-  const [seccion, setSeccion] = useState("personajes");
 
-  useEffect( ()=> {
-    document.title=`${seccion} de Rick And Morty API`;
-  }, [seccion]);
+        // reemplazamos nuestra navegación anterior
 
-  function DetallePersonaje() {
-    let { id } = useParams();
-    return <h2>Detalles del personaje con ID: {id}</h2>;
-  }
-
-  
-  let { id, tipo } = useParams();
-
-  return (
-    <Router>
-      <div className="Container">
-        <header className="Header">
-          <div className="Header-container">
-            <div style={{fontSize: "xx-large"}}><AlienAI color={"red"}/></div>
-            <Link to="/"><h1 className="Header-title">Rick And Morty</h1></Link>
-            
-            <div style={{fontSize: "xx-large"}}><AlienAI/></div>
-          </div>
-          <nav>
+        <nav>
             <ul>
               {/* <li><button onClick={()=>setSeccion("personajes")}>Personajes</button></li>
               <li><button onClick={()=>setSeccion("ubicaciones")}>Ubicaciones</button></li>
               <li><button onClick={()=>setSeccion("episodios")}>Episodios</button></li> */}
+              
+              {/* Link no posee "active" por lo que usamos NavLink */}
+              <li><Link  to="/personajes" className="Button-Link">Personajes</Link ></li>
+              <li><Link  to="/ubicaciones" className="Button-Link">Ubicaciones</Link ></li>
+              <li><Link  to="/episodios" className="Button-Link">Episodios</Link ></li>
+
               <li><NavLink  to="/personajes" className="Button-Link">Personajes</NavLink ></li>
               <li><NavLink  to="/ubicaciones" className="Button-Link">Ubicaciones</NavLink ></li>
               <li><NavLink  to="/episodios" className="Button-Link">Episodios</NavLink ></li>
-              
+
+ 
 
             </ul>
           </nav>
-        </header>
 
-    
+        // reemplazamos nuestro Content
         <main className="Content">
-          id eS:
-                {id} tipo es {tipo}
+      
           {/* 
           {seccion == "personajes" && <Personajes />}
           {seccion == "ubicaciones" && <Ubicaciones />}
@@ -61,14 +47,7 @@ function App() {
             <Route path="/personajes" element={<Personajes />} />
             <Route path="/ubicaciones" element={<Ubicaciones />} />
             <Route path="/episodios" element={<Episodios />} />
-            <Route path="/episodios/:id/:tipo" element={<Episodios />} />
             <Route path="/" element={<Personajes />} />
           </Routes>
         </main>
-
-      </div>
-      </Router>
-  )
-}
-
-export default App
+```
