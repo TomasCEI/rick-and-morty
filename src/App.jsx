@@ -3,18 +3,17 @@ import './css/App.css'
 import './css/rick-and-morty.css'
 
 import { BrowserRouter as Router, Routes, Route, Link, NavLink  } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
 
 import Ubicaciones from './pages/Ubicaciones';
 import Personajes from './pages/Personajes';
 import Episodios from './pages/Episodios';
 
 
-function AppLayout() {
+function App() {
   // const [seccion, setSeccion] = useState("")
 
   return (
-    // <Router>
+    <Router>
     <main className="Container">
       <header className="Header">
         <Link to="/">
@@ -56,21 +55,20 @@ function AppLayout() {
       {/* Esta version utiliza react router  */}
       <div className="Content">
           {/* posibles Rutas */}
-          {/* <Routes>
+          <Routes>
               <Route path="/personajes"   element={<Personajes />}    />
               <Route path="/ubicaciones"  element={<Ubicaciones />}   />
               <Route path="/episodios"    element={<Episodios />}     />
-              {/ * Path o Ruta Principal - Raiz * /}
+              {/* Path o Ruta Principal - Raiz */}
               <Route path="/"             element={<Personajes />}    />
-          </Routes> */}
+          </Routes>
 
-          <Outlet />
       </div>
 
 
     </main>
-    // </Router>
+    </Router>
   )
 }
 
-export default AppLayout
+export default App
