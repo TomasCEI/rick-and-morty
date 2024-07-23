@@ -1,18 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+//import App from './App.jsx'
 import './css/index.css'
 
 
-import Ubicaciones from './pages/Ubicaciones';
-import Personajes from './pages/Personajes';
-import Episodios from './pages/Episodios';
+// // Mis Páginas
+// import Ubicaciones from './pages/Ubicaciones';
+// import Personajes from './pages/Personajes';
+// import Episodios from './pages/Episodios';
+// // Páginas especiales
+// import ErrorPage from "./error-page";
+
+
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import ErrorPage from "./error-page";
+
+import router from './lib/routes.jsx';
 
 // const router = createBrowserRouter([
 //   {
@@ -40,7 +46,7 @@ import ErrorPage from "./error-page";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <RouterProvider router={router} /> */}
-    <App />
+    <RouterProvider router={router} />
+    {/* <App /> */}
   </React.StrictMode>,
 )

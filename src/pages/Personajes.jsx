@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react';
 import AlienAI from '../components/Alien';
 
+import { Link } from 'react-router-dom';
+
 const Personajes = () => {
     const [personajes, setPersonajes] = useState([]);
     const [filter, setFilter] = useState("");
@@ -98,7 +100,7 @@ const Personajes = () => {
      );
 }
 
-const PersonajeCard = ({name, image, species, status, index}) => {
+const PersonajeCard = ({name, image, species, status, index, id}) => {
     // index no es id, viene del map para animar los elementos con un multiplicador
 
     // Possible status  values: "Alive", "Dead", "Unknown"
@@ -125,6 +127,7 @@ const PersonajeCard = ({name, image, species, status, index}) => {
             <div>
                 <strong>{name}</strong>
             </div>
+            <Link to={`/personaje/${id}`}>Ver personaje</Link>
             {/* <span>{species}</span> */}
             {/* <span>{status}</span> */}
         </article> );
